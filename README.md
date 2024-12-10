@@ -4,6 +4,8 @@ This project implements an ETL Pipeline for Spotify Data using a combination of 
 
 ## Workflow Description
 
+![Workflow](project_workflow.png)
+
 ### 1. Data Extraction: AWS Lambda
 A Spotify API is used to extract raw playlist data in JSON format. The connection is established using SpotifyClientCredentials, where client credentials (Client ID and Secret) are securely stored in the Lambda environment variables.
 
@@ -16,6 +18,8 @@ The lambda_function.py script:
 This function is triggered every minute using Amazon CloudWatch.
 
 This function is triggered every minute using Amazon CloudWatch.
+
+![AWS_Lambda](spotify_api_etl.png)
 
 
 ### 2. Data Transformation: AWS Glue
@@ -52,6 +56,7 @@ Visualizations include:
 4. Album statistics, such as the number of tracks per album.
 The visualizations provide valuable insights into Spotify data trends.
 
+![DV](spotify_dv.png)
 
 ### Key Features
 Automation: Entire pipeline (ETL) is automated with triggers from CloudWatch and Snowpipe.
