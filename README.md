@@ -33,3 +33,37 @@ process_songs: Extracts song_name, song_id, duration_ms, song_url, popularity, a
 Flattening nested JSON structures using explode.
 Formatting the added_at field to a standard DATE format.
 4. Output: Transformed data is saved back into S3 under transformed_data/ in separate folders (album, artists, songs) as CSV files.
+
+
+### 3. Data Loading: Snowflake
+A Snowflake SQL script (snowflake.sql) creates a database (spotify_db) with tables for albums (tbl_album), artists (tbl_artists), and songs (tbl_songs).
+Snowpipe Integration:
+1. An S3 bucket (spotify-data-manvith) is integrated with Snowflake using Storage Integration (s3_init).
+2. A Snowpipe is configured to ingest transformed data automatically into the Snowflake tables.
+
+
+
+### 4. Data Visualization: Power BI
+The Snowflake tables are connected to Power BI, where detailed visualizations are created.
+Visualizations include:
+1. Top 10 artists with the highest song popularity.
+2. Top 10 albums with the highest popularity.
+3. Song duration summaries.
+4. Album statistics, such as the number of tracks per album.
+The visualizations provide valuable insights into Spotify data trends.
+
+
+### Key Features
+Automation: Entire pipeline (ETL) is automated with triggers from CloudWatch and Snowpipe.
+Scalability: Using AWS Lambda and Glue allows handling large volumes of Spotify data efficiently.
+Real-time Data Updates: Snowpipe enables near-real-time updates of data in Snowflake.
+Customizable Transformations: Transformation logic is adaptable to different data structures or additional requirements.
+
+
+### Resources
+AWS Lambda Function Code (lambda_function.py)
+AWS Glue Transformation Code (spark_transformation.py)
+Snowflake SQL Script (snowflake.sql)
+Data Visualizations
+
+
