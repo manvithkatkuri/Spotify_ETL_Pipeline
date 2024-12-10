@@ -71,4 +71,5 @@ AWS Glue Transformation Code (spark_transformation.py)
 Snowflake SQL Script (snowflake.sql)
 Data Visualizations
 
-
+### Tools
+Spotify API, AWS Lambda, Amazon CloudWatch, Amazon S3, AWS Glue, PySpark, Snowflake, Snowpipe, SQL, Power BI, Python, JSON, CSV, AWS IAM Roles, and AWS Storage Integration
