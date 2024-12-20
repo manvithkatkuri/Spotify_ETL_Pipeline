@@ -2,7 +2,7 @@
 
 This project implements an ETL Pipeline for Spotify Data using a combination of AWS services, Snowflake, and Power BI. The goal is to extract Spotify playlist data, transform it, and load it into a Snowflake database for further analysis and visualization.
 
-## Workflow Description
+## Workflow 
 
 ![Workflow](project_workflow.png)
 
