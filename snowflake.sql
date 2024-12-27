@@ -1,5 +1,7 @@
+--create database
 create database spotify_db;
 
+--creating storage integration
 create or replace storage integration s3_init
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = S3
@@ -8,9 +10,10 @@ create or replace storage integration s3_init
   STORAGE_ALLOWED_LOCATIONS=('s3://spotify-data-manvith')
   comment ='Creating connection to S3 ';
 
-  DESC integration s3_init;--change the aws user arn and externalId in aws
+--verifying details of integration  
+DESC integration s3_init;--change the aws user arn and externalId in aws
 
-
+--creating file format
   CREATE OR REPLACE file format csv_fileformat
       type=csv
       field_delimiter=','
@@ -19,16 +22,19 @@ create or replace storage integration s3_init
       empty_field_as_null=TRUE;
 
 
+--creating stage
  CREATE OR REPLACE stage spotify_stage
    URL='s3://spotify-data-manvith/transformed_data/'
    STORAGE_INTEGRATION=s3_init
    FILE_FORMAT=csv_fileformat;
 
 
-
+--verifying stage creation
  list @spotify_stage;
 
 
+
+--creating tables
  CREATE OR REPLACE TABLE tbl_album(
      album_id STRING,
      album_name STRING,
